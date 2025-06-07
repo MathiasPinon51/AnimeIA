@@ -3,7 +3,7 @@ library(text2vec)
 
 # This function generates a Document-Term Matrix from 
 # all anime data 
-GenerateDTM <- function(){
+GenerateDTMAndVectorizer <- function(){
   #Using getAnimeData() function to get all cleaning anime data 
   animeData <- getAnimeData()
   
@@ -12,5 +12,5 @@ GenerateDTM <- function(){
   vocabulary <- create_vocabulary(it)
   vectorizer <- vocab_vectorizer(vocabulary())
   dtm <- create_dtm(it,vectorizer)
-  return(dtm) 
+  return(list(dtm = dtm, vectorizer = vectorizer))
 }
